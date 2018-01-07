@@ -22,12 +22,12 @@ function formatTable(rows) {
 
 function formatName(path) {
   if (path.length === 0) {
-    return '';
+    return '.';
   }
   if (path.length === 1) {
     return path[0];
   }
-  return '*' + path.slice(0, -1).join('.') + '.* ' + path.slice(-1)[0];
+  return '' + path.slice(0, -1).join('.') + '.' + path.slice(-1)[0];
 }
 
 function formatType(schema) {
@@ -50,7 +50,7 @@ function formatType(schema) {
 function formatRow(schema, path, isRequired, typeOverride) {
   const description = (isRequired ? '' : '*Optional* ')
                     + (schema.description || '');
-  return [formatName(path), typeOverride || formatType(schema), description];
+  return ['`' + formatName(path) + '`', typeOverride || formatType(schema), description];
 }
 
 function sortKeys(keys, requiredKeys) {
@@ -132,14 +132,14 @@ function generateRowsForCompleteSchema(schema, path, schemas, isRequired) {
     if (path.length > 0) {
       return generateRowsForArray(schema, path, schemas, isRequired);
     }
-    return generateRowsForSchema(schema.items, path, schemas, true);
+    return generateRowsForSchema(schema.items, path.concat('[]'), schemas, true);
   }
   if (schema.properties) {
     return generateRowsForObject(schema, path, schemas, isRequired);
   }
   if (schema.additionalProperties) {
     return generateRowsForSchema(schema.additionalProperties,
-      path.concat('\\*'), schemas, isRequired);
+      path.concat('*'), schemas, isRequired);
   }
   if (schema.oneOf) {
     return generateRowsForBranch(schema.oneOf, path, schema.description,
