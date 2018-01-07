@@ -1,13 +1,22 @@
 {
-  "name": "json-schema-to-markdown-table",
-  "version": "0.4.0",
+  "name": "@justmoon/json-schema-to-markdown",
+  "version": "0.0.0",
   "description": "Convert JSON schema to a markdown table",
-  "keywords": ["json", "schema", "jsonschema", "markdown", "table"],
+  "keywords": [
+    "json",
+    "schema",
+    "jsonschema",
+    "markdown",
+    "table"
+  ],
   "license": "ISC",
-  "author": "Chris Clark",
+  "author": "Stefan Thomas <justmoon@members.fsf.org>",
+  "contributors": [
+    "Chris Clark"
+  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:clark800/json-schema-to-markdown.git"
+    "url": "git@github.com:justmoon/json-schema-to-markdown.git"
   },
   "bin": {
     "json-schema-to-markdown": "./json-schema-to-markdown.js"
