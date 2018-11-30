@@ -219,3 +219,5 @@ function renderFromPaths(schemaPath, schemasPath) {
 
 module.exports.render = render;
 module.exports.renderFromPaths = renderFromPaths;
+module.exports.loadSchema = loadSchema;
+module.exports.loadSchemas = loadSchemas;
