@@ -1,6 +1,6 @@
 {
   "name": "@justmoon/json-schema-to-markdown",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Convert JSON schema to a markdown table",
   "keywords": [
     "json",
