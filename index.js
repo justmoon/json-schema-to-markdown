@@ -203,7 +203,7 @@ function loadSchemas(schemaDirectory) {
   filepaths.forEach(filepath => {
     if (filepath.endsWith('.json')) {
       const schema = loadSchema(filepath);
-      schemas[schema.id || schema.title] = schema;
+      schemas[schema['$id'] || schema.title] = schema;
     }
   });
   return schemas;
